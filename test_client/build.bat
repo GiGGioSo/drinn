@@ -1,0 +1,14 @@
+@ECHO OFF
+
+SET SRCS=client.c
+SET EXE=client.exe
+
+SET LIBS=-lWs2_32.lib
+SET PREPROCESSOR_DEFINITIONS=-D _CRT_SECURE_NO_WARNINGS
+
+DEL /Q bin
+
+ECHO Compiling %SRCS%
+
+clang %PREPROCESSOR_DEFINITIONS% %SRCS% -g -o bin\%EXE% %LIBS%
+
