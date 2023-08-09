@@ -21,7 +21,7 @@ This is what would have happened if you had `drinn`:
 __SERVER__:
 - Obtain the server executable (`drinn.exe`) by either downloading it from the release page or by building it yourself (use the `build.bat`)
 - Make sure that the files `drinn.exe` and `drinn.mp3` are in the same directory
-- Execute `drinn.exe` _(you can set the volume by passing a value between 0 and 1 as argument)_
+- Execute `drinn.exe` _(you can set the volume by passing a value between 0 and 1 as argument, default is 1)_
 
 ---
 
@@ -29,7 +29,7 @@ __THE CLIENT PRESENT NOW IS JUST FOR TESTING PURPOSES, THE PROPER APPLICATIONS W
 
 __TEST_CLIENT__:
 - Obtain the server executable (`client.exe`) by either downloading it from the release page or by building it yourself (use the `build.bat`)
-- Execute `client.exe` with the `IP` of the server as argument (if you are running both client and server on the same machine, you can use `localhost` as `IP`)
+- Execute `client.exe` _(you can set the `ip_address` of the server by passing it as argument, default is `localhost`)_
 
 ## To-Do
 - Create an Android application

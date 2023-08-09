@@ -56,11 +56,9 @@ typedef char bool;
 drinn_err terminate_socket(SOCKET socket);
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        DRINN_PRINT_ERROR(
-            "[ERROR] Incorrect number of arguments. Expected: 2, found: %d.\n",
-            argc);
-        return DRINN_STARTUP_ERROR;
+    char *server_addr = "localhost\0";
+    if (argc > 1) {
+        server_addr = argv[1];
     }
 
     bool receive_error = FALSE;
@@ -97,7 +95,7 @@ int main(int argc, char *argv[]) {
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
-    result = getaddrinfo(argv[1], DRINN_DEFAULT_PORT, &hints, &result_info);
+    result = getaddrinfo(server_addr, DRINN_DEFAULT_PORT, &hints, &result_info);
     if (result) {
         DRINN_PRINT_ERROR("[ERROR] getaddrinfo failed: %d\n", result);
         WSACleanup();
