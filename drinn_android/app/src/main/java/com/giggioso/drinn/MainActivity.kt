@@ -204,6 +204,7 @@ class MainActivity : ComponentActivity() {
                     Log.d("IP USED", inputIp)
                     thread {
                         if (countDownState.targetState == countDownState.currentState) {
+                            drinnButtonEnabled = false
 
                             try {
                                 File(
@@ -215,7 +216,6 @@ class MainActivity : ComponentActivity() {
 
                             feedbackMsg = sendDrinn(inputIp)
                             feedbackShowing = true
-                            drinnButtonEnabled = false
 
                             if (feedbackMsg == "DRINN successful!") {
                                 feedbackColor = Color.Green
