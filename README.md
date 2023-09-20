@@ -1,7 +1,6 @@
 # drinn
 A simple server-client application that plays a bell when a specific messagge is received through a TCP connection.
 
---
 ## Did this ever happen to you?
 
 - You are listening to loud music on your headphones.
@@ -19,7 +18,6 @@ This is what would have happened if you had `drinn`:
 - You hear the bell ringing in your headphones, you stop the music and respond to your mom.
 - You get back to what you were listening. __Happy__.
 
----
 ## Server setup (Windows)
 
 Steps:
@@ -44,7 +42,6 @@ __The easy one__:
 __The difficult one__:
 - Deal with it yourself
 
----
 ## Application setup (Android)
 
 __WHEN INSTALLING THE APP YOUR PHONE WILL PROBABLY WARN YOU AND ADVICE YOU NOT TO INSTALL THE APPLICATION, BECAUSE IT'S NOT SIGNED, SO THE PHONE DOESN'T KNOW WHERE IT COMES FROM AND DOESN'T LIKE IT. THIS WILL BE FIXED SOONER OR LATER, PROBABLY WHEN I'LL TRY TO LOAD THE APP IN THE PLAY STORE__
@@ -55,7 +52,6 @@ Steps:
 - In the input field on the top you will need to insert the IP address of the computer on which the server is running _(the one optained during the server setup)_
 - Now you can press the button, and hopefully a DRINN will be received on the other end
 
----
 ## Tips and tricks
 
 ### Set static IP for the server
