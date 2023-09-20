@@ -171,12 +171,14 @@ int main(int argc, char *argv[]) {
         return DRINN_GENERIC_ERROR;
     }
 
-    DRINN_PRINT_DEBUG("### INFO FROM ARGS ###\n");
-    DRINN_PRINT_DEBUG("working_dir: %s\n", work_dir_path);
-    DRINN_PRINT_DEBUG("debug: %s\n", (debug_output)?"true":"false");
-    DRINN_PRINT_DEBUG("volume: %f\n", volume_arg);
-    DRINN_PRINT_DEBUG("autostart: %s\n", (set_autostart_arg)?"true":"false");
     // ### END OF SETTING CORRECT WORKING DIRECTORY
+
+    DRINN_PRINT_DEBUG("### INFO FROM ARGS ###\n");
+    DRINN_PRINT_DEBUG("# working_dir: %s\n", work_dir_path);
+    DRINN_PRINT_DEBUG("# debug: %s\n", (debug_output)?"true":"false");
+    DRINN_PRINT_DEBUG("# volume: %f\n", volume_arg);
+    DRINN_PRINT_DEBUG("# autostart: %s\n", (set_autostart_arg)?"true":"false");
+    DRINN_PRINT_DEBUG("######################\n");
 
     // ### SETTING AUTOSTART - REGISTRY KEY CREATION
     if (set_autostart_arg) {
@@ -382,11 +384,14 @@ int main(int argc, char *argv[]) {
     DRINN_PRINT_DEBUG("Listen successful!\n");
     // ### END OF WSA INITIALIZATION AND SOCKET OPENING
 
-    // DRINN_PRINT("Server local IP: %s\n", server_ip);
-
     while (running) {
         DRINN_PRINT("Ready to DRINN...\n");
-        client_socket = accept(listen_socket, NULL, NULL);
+
+        struct sockaddr_in client_addr;
+        socklen_t socklen = sizeof(client_addr);
+
+        client_socket = accept(listen_socket,
+                               (struct sockaddr *) &client_addr, &socklen);
         if (client_socket == INVALID_SOCKET) {
             DRINN_PRINT_ERROR("accept failed: %d\n", WSAGetLastError());
             closesocket(listen_socket);
@@ -394,7 +399,15 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        DRINN_PRINT("Accepted a connection!\n");
+        char client_ip[17];
+        if (inet_ntop(AF_INET,
+                      &client_addr.sin_addr,
+                      client_ip,
+                      sizeof(client_ip)) == NULL) {
+            DRINN_PRINT_ERROR("inet_ntop failed: %d\n", WSAGetLastError());
+        } else {
+            DRINN_PRINT("Accepted a connection from %s!\n", client_ip);
+        }
 
         drinn_err conn_err = manage_connection(client_socket);
         DRINN_PRINT_DEBUG("manage_connection returned: %d\n", conn_err);
@@ -414,7 +427,7 @@ drinn_err terminate_socket(SOCKET socket) {
         return DRINN_SHUTDOWN_ERROR;
     }
     closesocket(socket);
-    DRINN_PRINT("The connection was closed normally.\n");
+    DRINN_PRINT_DEBUG("The connection was closed normally.\n");
     return DRINN_SUCCESS;
 }
 
@@ -541,12 +554,12 @@ drinn_bool file_exists(const char *path) {
 }
 
 void print_help_message() {
-    DRINN_PRINT("\nUsage: drinn.exe [OPTIONS]\n\n");
-    DRINN_PRINT("        --help                      Print this message\n\n");
-    DRINN_PRINT("        --set-volume <volume>       Set volume.\n");
-    DRINN_PRINT("                                    Must be greater than 0 and less or equal to 1.\n");
-    DRINN_PRINT("                                    (default: 0.8)\n\n");
-    DRINN_PRINT("        --debug                     Activate debug output\n\n");
-    DRINN_PRINT("        --no-adapters-info          Do not print adapter info\n\n");
-    DRINN_PRINT("        --set-autostart             Set the program to autostart with the same flags\n\n");
+    DRINN_PRINT("\nUsage: drinn.exe [OPTIONS]\n\n"
+                "        --help                      Print this message\n\n"
+                "        --set-volume <volume>       Set volume.\n"
+                "                                    Must be greater than 0 and less or equal to 1.\n"
+                "                                    (default: 0.8)\n\n"
+                "        --debug                     Activate debug output\n\n"
+                "        --no-adapters-info          Do not print adapter info\n\n"
+                "        --set-autostart             Set the program to autostart with the same flags\n\n");
 }
