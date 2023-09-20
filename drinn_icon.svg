@@ -9,11 +9,11 @@
    id="SVGRoot"
    sodipodi:docname="drinn_icon.svg"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
      id="namedview28"
      pagecolor="#ffffff"
      bordercolor="#000000"
@@ -25,30 +25,50 @@
      inkscape:document-units="px"
      showgrid="true"
      inkscape:zoom="16"
-     inkscape:cx="6.15625"
-     inkscape:cy="16.875"
+     inkscape:cx="13.34375"
+     inkscape:cy="17.9375"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
-    <inkscape:grid
+     inkscape:current-layer="layer1"><inkscape:grid
        type="xygrid"
-       id="grid34" />
-  </sodipodi:namedview>
-  <defs
-     id="defs23" />
-  <g
+       id="grid34" /></sodipodi:namedview><defs
+     id="defs23"><style
+       id="style2658">.cls-1{fill:none;stroke:#020202;stroke-miterlimit:10;stroke-width:1.91px;}</style></defs><g
      inkscape:label="Livello 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <rect
-       style="fill:#ffff80;fill-opacity:1"
+     id="layer1"><rect
+       style="fill:#ffff80;fill-opacity:1;stroke-width:0.913743"
        id="rect346"
-       width="35.236343"
-       height="34.806805"
-       x="-1.3556495"
-       y="-0.92611164" />
-  </g>
-</svg>
+       width="32"
+       height="32"
+       x="0"
+       y="0" /><g
+       id="g2681"
+       transform="matrix(0.74203405,0,0,0.74203405,7.0955914,7.0955914)"><polygon
+         class="cls-1"
+         points="2.46,18.68 21.55,18.68 22.5,20.59 22.5,22.5 1.5,22.5 1.5,20.59 "
+         id="polygon2662" /><path
+         class="cls-1"
+         d="m 11.75,5.32 h 0.49 a 9.3,9.3 0 0 1 9.3,9.3 v 0.25 H 2.45 v -0.25 a 9.3,9.3 0 0 1 9.3,-9.3 z"
+         id="path2664" /><line
+         class="cls-1"
+         x1="12"
+         y1="1.5"
+         x2="12"
+         y2="5.3200002"
+         id="line2666" /><line
+         class="cls-1"
+         x1="9.1400003"
+         y1="1.5"
+         x2="14.86"
+         y2="1.5"
+         id="line2668" /><rect
+         class="cls-1"
+         x="5.3200002"
+         y="14.86"
+         width="13.36"
+         height="3.8199999"
+         id="rect2670" /></g></g></svg>
